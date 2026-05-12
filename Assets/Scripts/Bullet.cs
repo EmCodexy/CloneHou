@@ -2,36 +2,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float BulletSpeed;
-    public float Despawn = 3f;
-    public int Damage = 1;
+    public float speed = 12f;
+    public int damageValue = 1;
 
     void Update()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * BulletSpeed);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject, Despawn);
+        // 1. Try to find the EnemyHealth script on whatever we hit
+        BossHealth enemy = collision.GetComponent<BossHealth>();
+
+        // 2. If we found it, tell it to take damage
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damageValue);
+            Destroy(gameObject); // Destroy bullet on hit
+        }
+
+       
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    EnemySpawnHealth spawner = collision.GetComponent<EnemySpawnHealth>();
-    //    if (spawner != null)
-    //    {
-    //        spawner.TakeDamage(Damage);
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-
-    //    EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
-    //    if (enemyHealth != null)
-    //    {
-    //        enemyHealth.TakeDamage(Damage);
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-    //}
 }
+
