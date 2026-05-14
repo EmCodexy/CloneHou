@@ -321,6 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 385175848}
+  - component: {fileID: 385175849}
   m_Layer: 0
   m_Name: shooting
   m_TagString: Untagged
@@ -343,6 +344,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 316113447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &385175849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385175847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bbf3b214f4eba4dbc2bbbbb75e5688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawner
+  Projectile: {fileID: 6753943172773408535, guid: 35fee4b5cc3f3574ba42525e5bd4e12c, type: 3}
+  ProjectileLife: 1
+  speed: 1
+  spawnerType: 0
+  FiringRate: 0
 --- !u!1 &496816932
 GameObject:
   m_ObjectHideFlags: 0

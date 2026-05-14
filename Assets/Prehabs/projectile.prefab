@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2940821789614345163}
   - component: {fileID: 6457542976276770298}
   - component: {fileID: -6786923516021021795}
+  - component: {fileID: 7082317022682734749}
   m_Layer: 0
   m_Name: projectile
   m_TagString: EB
@@ -156,3 +157,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7082317022682734749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910502759035267084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b7d4505672fec43bfaaa0bf1130933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectiles
+  ProjectileLife: 0
+  Rotation: 0
+  Speed: 0

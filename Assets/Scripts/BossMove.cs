@@ -11,9 +11,14 @@ public class BossMove : MonoBehaviour
     private float stopTimer;
     private int direction = 1;
 
+    // Cache the spawner reference here to save performance
+    private ProjectileSpawner spawner;
+
     void Start()
     {
         startX = transform.position.x;
+        // Grab the component once at the start
+        spawner = GetComponentInChildren<ProjectileSpawner>();
     }
 
     void Update()
@@ -28,8 +33,8 @@ public class BossMove : MonoBehaviour
                 stopTimer = stopDuration;
                 direction *= -1; // Reverse direction for next time
 
-                // Tell the child to shoot
-                GetComponentInChildren<Projectiles>().StartFiring();
+                // Tell the child to START shooting
+                if (spawner != null) spawner.StartFiring();
             }
         }
         else
@@ -38,7 +43,9 @@ public class BossMove : MonoBehaviour
             if (stopTimer <= 0)
             {
                 isMoving = true;
-                GetComponentInChildren<Projectiles>().StopFiring();
+
+                // Tell the child to STOP shooting
+                if (spawner != null) spawner.StopFiring();
             }
         }
     }
