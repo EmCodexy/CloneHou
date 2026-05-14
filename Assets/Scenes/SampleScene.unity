@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMove
   speed: 2
-  moveRange: 5
+  totalMoveDistance: 10
+  totalStops: 1
   stopDuration: 2
 --- !u!70 &316113445
 CapsuleCollider2D:
@@ -356,11 +357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bbf3b214f4eba4dbc2bbbbb75e5688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileSpawner
-  Projectile: {fileID: 6753943172773408535, guid: 35fee4b5cc3f3574ba42525e5bd4e12c, type: 3}
-  ProjectileLife: 1
-  speed: 1
-  spawnerType: 0
-  FiringRate: 0
+  Projectile: {fileID: 1910502759035267084, guid: 7e45d89a24b2f974caed49d77e6236aa, type: 3}
+  ProjectileLife: 10
+  speed: 4
+  spawnerType: 1
+  FiringRate: 0.01
 --- !u!1 &496816932
 GameObject:
   m_ObjectHideFlags: 0

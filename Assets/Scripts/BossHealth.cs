@@ -7,9 +7,12 @@ public class BossHealth : MonoBehaviour
     // This is the function the bullet was looking for!
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        Debug.Log("Boss HP: " + health);
-
+        if(gameObject.CompareTag("PB"))
+        {
+            health -= damage;
+            Debug.Log("Boss HP: " + health);
+        }
+    
         if (health <= 0)
         {
             Die();
