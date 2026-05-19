@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7684738802338296316}
   - component: {fileID: 8750604729841407668}
   - component: {fileID: 6595359378439594484}
-  - component: {fileID: 5711072947012245692}
   - component: {fileID: 6126828785102054468}
+  - component: {fileID: 4624019232214596700}
   m_Layer: 6
   m_Name: pya
   m_TagString: Player
@@ -121,7 +121,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &5711072947012245692
+--- !u!114 &6126828785102054468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318234219555441693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9f1a4a8851e9741b6506646fd742f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Move
+  plMaxSpeed: 5
+--- !u!61 &4624019232214596700
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,16 +180,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6126828785102054468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 318234219555441693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9f1a4a8851e9741b6506646fd742f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Move
-  plMaxSpeed: 5

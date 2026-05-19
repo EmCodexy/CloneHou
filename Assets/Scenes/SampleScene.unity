@@ -1588,13 +1588,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: pya
       objectReference: {fileID: 0}
-    - target: {fileID: 5711072947012245692, guid: dcf0be4debb17db408da8a0bb73749f0, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6595359378439594484, guid: dcf0be4debb17db408da8a0bb73749f0, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684738802338296316, guid: dcf0be4debb17db408da8a0bb73749f0, type: 3}
       propertyPath: m_LocalPosition.x
