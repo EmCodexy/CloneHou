@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         // Holding down the mouse button (or you can use KeyCode.Z)
-        if (Input.GetKey(KeyCode.R) && Time.time > nextFire)
+        if (Input.GetKey(KeyCode.LeftControl) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Shoot();
