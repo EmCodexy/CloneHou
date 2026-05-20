@@ -14,7 +14,7 @@ public class Paused : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKey(KeyCode.Space))
+       if(Input.GetKeyDown(KeyCode.Space))
         {
             if(IsPaused)
             {
@@ -26,7 +26,7 @@ public class Paused : MonoBehaviour
             }
         }
 
-       if(Input.GetKey(KeyCode.LeftAlt))
+       if(Input.GetKey(KeyCode.LeftAlt) && IsPaused)
         {
             Application.Quit();
             Debug.Log("see you around!");

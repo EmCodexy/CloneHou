@@ -11,6 +11,7 @@ public class BossHealth : MonoBehaviour
         {
             health -= damage;
             Debug.Log("Boss HP: " + health);
+            ScoreUI.AddScore();
         }
     
         if (health <= 0)

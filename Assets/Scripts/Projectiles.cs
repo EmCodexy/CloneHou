@@ -28,4 +28,9 @@ public class Projectiles : MonoBehaviour
         float y = timer * Speed * transform.right.y;
         return new Vector2(x+spawnPoint.x, y+spawnPoint.y);
     }
+    public void jjk()
+    {
+        Destroy(gameObject);
+       
+    }
 }
