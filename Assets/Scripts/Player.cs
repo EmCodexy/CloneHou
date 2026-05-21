@@ -1,9 +1,15 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    [SerializeField]
+    private string Dies;
+
+
     public Sprite EmptyHeart;
     public Sprite FullHeart;
     public Image[] health;
@@ -24,6 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        
         for (int i = 0; i < health.Length; i++)
         {
             if(i < HP)
@@ -57,7 +64,7 @@ public class Player : MonoBehaviour
 
         if (HP <= 0)
         {
-            SceneManager.LoadScene("Gameover");
+            SceneManager.LoadScene(Dies);
         }
     }
 }

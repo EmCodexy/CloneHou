@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
+    
     public static float Score;
     public TextMeshProUGUI Points;
 
     private void Start()
     {
-        Score = 0;
+        Score = 50;
     }
     private void FixedUpdate()
     {
-        Points.text = Score.ToString();
+        Points.text = Mathf.FloorToInt(Score).ToString();
     }
 
     public static void AddScore()
@@ -22,8 +23,13 @@ public class ScoreUI : MonoBehaviour
         Debug.Log("you've " + Score + " points! ");
     }
 
-    public static void SubtrackScore()
+    public static void SubtrackScore(float drainSpeed)
     {
-        Score -= 1 * Time.deltaTime;
+        Score -= drainSpeed * Time.deltaTime;
+
+        if (Score < 0)
+        {
+            Score = 0;
+        }
     }
 }

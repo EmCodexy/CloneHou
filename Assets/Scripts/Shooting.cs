@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-
     public GameObject bulletPrefab;
 
     [Header("Firing Settings")]
@@ -10,13 +9,16 @@ public class Shooting : MonoBehaviour
     private float nextFire;
 
     [Header("Bullet Layout")]
-    public int bulletCount = 4;        
-    public float spreadAmount = 0.2f; 
-    public bool useFanShape = false;  
+    public int bulletCount = 4;
+    public float spreadAmount = 0.2f;
+    public bool useFanShape = false;
+
+    [Header("Lifespan Settings")]
+    [Tooltip("How many seconds the bullet travels before automatically despawning")]
+    public float bulletLifetime = 1f; 
 
     void Update()
     {
-        
         if (Input.GetKey(KeyCode.LeftControl) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -26,17 +28,14 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-      
         float width = (bulletCount - 1) * spreadAmount;
         float startX = -width / 2f;
 
         for (int i = 0; i < bulletCount; i++)
         {
-            
             Vector3 offset = new Vector3(startX + (i * spreadAmount), 0, 0);
             Vector3 spawnPos = transform.position + transform.right * offset.x;
 
-            // Optional: Add a tiny rotation to each bullet for a "Fan" effect
             Quaternion bulletRotation = transform.rotation;
             if (useFanShape)
             {
@@ -44,8 +43,11 @@ public class Shooting : MonoBehaviour
                 bulletRotation *= Quaternion.Euler(0, 0, angle);
             }
 
-            Instantiate(bulletPrefab, spawnPos, bulletRotation);
+            // 1. Assign the instantiated bullet to a temporary variable
+            GameObject bullet = Instantiate(bulletPrefab, spawnPos, bulletRotation);
+
+           
+            Destroy(bullet, bulletLifetime);
         }
     }
-
 }

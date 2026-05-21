@@ -27,10 +27,11 @@ public class Paused : MonoBehaviour
             }
         }
 
-       if(Input.GetKey(KeyCode.LeftAlt) && IsPaused)
+       if(Input.GetKey(KeyCode.Alpha1) && IsPaused)
         {
             SceneManager.LoadScene("Start");
             Debug.Log("see you around!");
+            
         }
     }
 

@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public Player player;
+   
     public GameObject shield;
+    public float PointsSpend = 15f;
     // Update is called once per frame
-
-    private void Start()
+    void Start()
     {
-        player = GetComponentInParent<Player>();
-        shield.SetActive(false);
+        if (shield != null)
+        {
+            shield.SetActive(false);
+        }
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.LeftAlt))
@@ -26,16 +29,23 @@ public class Shield : MonoBehaviour
         //    //transform.position = new Vector2(0, 0);
 
         //}
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("EB"))
+
+        if (shield.activeSelf)
         {
-            collision.gameObject.GetComponent<Projectiles>().jjk();
-           
+            // Pass our custom drain speed into the ScoreUI script
+            ScoreUI.SubtrackScore(PointsSpend);
+
+            // 3. Auto-shutoff check if score runs dry
+            if (ScoreUI.Score <= 0)
+            {
+                shield.SetActive(false);
+                Debug.Log("Shield deactivated: Out of score!");
+            }
         }
     }
+
+
 
 
 }
