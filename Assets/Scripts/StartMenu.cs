@@ -7,7 +7,7 @@ public class StartMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(Input.GetKey(KeyCode.LeftControl))
+     if(Input.GetKey(KeyCode.Alpha5))
         {
             SceneManager.LoadScene("SampleScene");
         }

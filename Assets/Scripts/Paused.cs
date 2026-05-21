@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Paused : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Paused : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             if(IsPaused)
             {
@@ -28,7 +29,7 @@ public class Paused : MonoBehaviour
 
        if(Input.GetKey(KeyCode.LeftAlt) && IsPaused)
         {
-            Application.Quit();
+            SceneManager.LoadScene("Start");
             Debug.Log("see you around!");
         }
     }

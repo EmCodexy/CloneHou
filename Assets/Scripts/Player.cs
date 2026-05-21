@@ -52,12 +52,12 @@ public class Player : MonoBehaviour
             // Optional: Destroy the enemy bullet on hit
             Destroy(collision.gameObject);
         }
-     
-       
 
-        //if(HP <= 0 )
-        //{
-        //    SceneManager.LoadScene("Gameover");
-        //}
+
+
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("Gameover");
+        }
     }
 }
