@@ -10,10 +10,10 @@ public class BossHealth : MonoBehaviour
     private float LoadingDelay = 1f;
     private float timeElapsed;
 
-    // This is the function the bullet was looking for!
+ 
     public void TakeDamage(int damage)
     {
-        //if(gameObject.CompareTag("PB"))
+       
         {
             health -= damage;
             Debug.Log("Boss HP: " + health);
@@ -29,7 +29,7 @@ public class BossHealth : MonoBehaviour
    void Die()
     {
         
-        // Add explosion effects here later!
+       
         Destroy(gameObject);
             SceneManager.LoadScene(NextlevelAfter);
 

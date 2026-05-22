@@ -4,13 +4,13 @@ public class BossMove : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float speed = 2f;
-    public float totalMoveDistance = 10f; // Total width of the boss's path
-    public int totalStops = 3;            // How many times it stops per direction
+    public float totalMoveDistance = 10f; 
+    public int totalStops = 3;           
     public float stopDuration = 2f;
 
     [Header("Wall Detection")]
-    public LayerMask wallLayer;           // Assign your Wall layer here in the Inspector
-    public float raycastDistance = 1f;    // How far ahead the boss looks for a wall
+    public LayerMask wallLayer;           
+    public float raycastDistance = 1f;    
 
     [Header("State")]
     private float startX;
@@ -18,9 +18,9 @@ public class BossMove : MonoBehaviour
     private float stopTimer;
     private int direction = 1;
 
-    private float nextStopX;              // The specific X coordinate for the next stop
-    private float stepDistance;           // Distance between each stop
-    private int currentStopCount = 0;     // Tracking stops in the current direction
+    private float nextStopX;            
+    private float stepDistance;          
+    private int currentStopCount = 0;    
 
     private ProjectileSpawner spawner;
 
@@ -29,16 +29,16 @@ public class BossMove : MonoBehaviour
         startX = transform.position.x;
         spawner = GetComponentInChildren<ProjectileSpawner>();
 
-        // Calculate how far to move between each stop
+        
         CalculateStep();
     }
 
     void CalculateStep()
     {
-        // Divide the total range by number of stops
+      
         stepDistance = totalMoveDistance / totalStops;
 
-        // Set the next X target based on current position and direction
+       
         nextStopX = transform.position.x + (stepDistance * direction);
     }
 
@@ -48,16 +48,16 @@ public class BossMove : MonoBehaviour
         {
             transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
 
-            // Cast a ray in the direction of movement
+            
             Vector2 rayDirection = Vector2.right * direction;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, raycastDistance, wallLayer);
             bool hitWall = hit.collider != null;
 
-            // Check if we reached or passed our next stop point
+           
             bool reachedTarget = (direction > 0 && transform.position.x >= nextStopX) ||
                                  (direction < 0 && transform.position.x <= nextStopX);
 
-            // Draws a line in the Scene window to help you see the raycast distance
+           
             Debug.DrawRay(transform.position, rayDirection * raycastDistance, hitWall ? Color.green : Color.red);
 
             if (hitWall || reachedTarget)
@@ -67,8 +67,7 @@ public class BossMove : MonoBehaviour
 
                 if (hitWall)
                 {
-                    // If we hit a wall, force the stop count to max.
-                    // This ensures the boss turns around immediately when the timer finishes.
+
                     currentStopCount = totalStops;
                 }
                 else
@@ -86,14 +85,14 @@ public class BossMove : MonoBehaviour
             {
                 if (spawner != null) spawner.StopFiring();
 
-                // If we finished all stops or hit a wall, flip!
+             
                 if (currentStopCount >= totalStops)
                 {
                     direction *= -1;
                     currentStopCount = 0;
                 }
 
-                CalculateStep(); // Find the next point to stop at
+                CalculateStep(); 
                 isMoving = true;
             }
         }

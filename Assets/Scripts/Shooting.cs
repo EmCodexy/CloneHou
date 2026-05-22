@@ -13,16 +13,23 @@ public class Shooting : MonoBehaviour
     public float spreadAmount = 0.2f;
     public bool useFanShape = false;
 
+    private AudioManager audioManager;
     [Header("Lifespan Settings")]
     [Tooltip("How many seconds the bullet travels before automatically despawning")]
-    public float bulletLifetime = 1f; 
+    public float bulletLifetime = 1f;
 
+    private void Start()
+    {
+        audioManager = Object.FindFirstObjectByType<AudioManager>();
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftControl) && Time.time > nextFire)
         {
+
             nextFire = Time.time + fireRate;
             Shoot();
+            audioManager.PlaySFX(audioManager.shooting);
         }
     }
 

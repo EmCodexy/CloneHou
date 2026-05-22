@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    
+   
     public float plMaxSpeed;
     private Rigidbody2D plRigidBody;
 
@@ -10,6 +10,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         plRigidBody = GetComponent<Rigidbody2D>();
+       
     }
 
     // Update is called once per frame
